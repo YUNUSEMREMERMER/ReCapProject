@@ -89,7 +89,7 @@ namespace WebAPI.Controllers
         [HttpPost("isRentable")]
         public IActionResult isRentable(Rental rental)
         {
-            var result = _rentalService.GetRentalsByCarId(rental.CarId);
+            var result = _rentalService.isRentable(rental);
             if (result.Success)
             {
                 return Ok(result);

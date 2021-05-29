@@ -10,6 +10,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -33,7 +34,6 @@ namespace Business.Concrete
             {
                 return result;
             }
-
 
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.AddedRental);
@@ -61,9 +61,15 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetCarDetails(), Messages.ReturnedRental);
         }
 
-        public IDataResult<Rental> GetRentalsByCarId(int carId)
+        public IResult isRentable(Rental rental)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(I=>I.CarId == carId));
+            var result = _rentalDal.GetAll(r => r.CarId == rental.CarId
+                    && r.ReturnDate >= rental.RentDate
+                    && r.RentDate <= rental.ReturnDate).Any();
+            if (result)
+                return new ErrorResult();
+            return new SuccessResult();
+
         }
 
         [ValidationAspect(typeof(RentalValidator))]
