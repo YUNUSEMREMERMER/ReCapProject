@@ -1,7 +1,7 @@
 # ReCapProject
 
 <hr>
-Katmanlı mimari ile tasarladığımız bu projede OOP tarafında Entity Framework kullanılmaktadır.Sürdürülebilir bir mimari için IoC prensibi ve SOLID ilkeleri ile geliştirilme amaçlanmıştır. AutoFac ve FluentValidation paketleri kullanılıyor .Proje API üzerinden devam ediyor.
+Katmanlı mimari ile tasarladığımız bu projede OOP tarafında Entity Framework kullanılmaktadır.Sürdürülebilir bir mimari için IoC prensibi ve SOLID ilkeleri ile geliştirilme amaçlanmıştır. AutoFac ve FluentValidation paketleri kullanılmaktadır.
 <hr>
 
 # Layers
